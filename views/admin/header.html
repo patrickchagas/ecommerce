@@ -263,6 +263,10 @@ desired effect
         <li>
           <a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a>
         </li>
+
+         <li>
+          <a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a>
+        </li>
         
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
