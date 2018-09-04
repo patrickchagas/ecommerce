@@ -38,8 +38,10 @@ class User extends Model {
 			//Verificar o Id do usuário
 			!(int)$_SESSION[User::SESSION]["iduser"] > 0 // está definido mas o id não é maior que zero			
 		) {
+
 			//Não está logado
 			return false;
+
 		} else {
 
 			//Esse If aqui só vai acontecer se o usuário tentar acessar uma rota de administrador
@@ -51,7 +53,9 @@ class User extends Model {
 			} else if ($inadmin === false ) {
 
 				return true;
+
 			} else {
+				
 				// se algo saiu desse padrão, ele não está logado
 				return false;
 
