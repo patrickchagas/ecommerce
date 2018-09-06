@@ -12,7 +12,7 @@ class User extends Model {
 	const SECRET = "HcodePhp7_Secret";
 	const ERROR = 'UserError';
 	const ERROR_REGISTER = "UserErrorRegister";
-	const SUCCESS = "UserSUCCESS";
+	const SUCCESS = "UserSucesss";
 
 	public static function getFromSession()
 	{
@@ -166,9 +166,9 @@ class User extends Model {
 		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
 
 			":iduser"=>$this->getiduser(),
-			":desperson"=>utf8_decode($this->getdesperson()),
+			":desperson"=>$this->getdesperson(),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
 			":desemail"=>$this->getdesemail(),
 			":nrphone"=>$this->getnrphone(),
 			":inadmin"=>$this->getinadmin()
@@ -319,12 +319,12 @@ class User extends Model {
 	{
 		$msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
 
-		User::clearSUCCESS();
+		User::clearSuccess();
 
 		return $msg;
 	}
 
-	public static function clearSUCCESS()
+	public static function clearSuccess()
 	{
 
 		$_SESSION[User::SUCCESS] = NULL;
