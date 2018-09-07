@@ -447,9 +447,6 @@ class User extends Model {
 
 	}
 
-
-
-
 }
 
 ?>
